@@ -6,6 +6,8 @@ MAINTAINER Yingding Wang "wang@pms.ifi.lmu.de"
 # updating image repository references
 RUN sudo apt-get update
 # installing nodejs
+# run in non-interactive shell in docker
+## http://askubuntu.com/questions/506158/unable-to-initialize-frontend-dialog-when-using-ssh
 RUN sudo DEBIAN_FRONTEND=noninteractive apt-get install -y nodejs
 # installing node package manager
 RUN sudo DEBIAN_FRONTEND=noninteractive apt-get install -y npm
