@@ -14,6 +14,12 @@ RUN sudo DEBIAN_FRONTEND=noninteractive apt-get install -y npm
 
 # installing mongodb
 RUN sudo DEBIAN_FRONTEND=noninteractive apt-get install -y mongodb
+# create the mongo db data directory
+RUN mkdir -p /data/db
+# EXPOSE port 27017 from the container to the host
+EXPOSE 27017
+# Set usr/bin/mongod as the dockerized entry-point application
+# ENTRYPOINT ["/usr/bin/mongod"]
 
 # installing add-apt-repository 
 # Reference: http://askubuntu.com/questions/38021/how-to-add-a-ppa-on-a-server
@@ -29,3 +35,6 @@ RUN sudo DEBIAN_FRONTEND=noninteractive apt-get install -y oracle-java8-installe
 # Set default
 RUN sudo DEBIAN_FRONTEND=noninteractive apt-get install -y oracle-java8-set-default
 
+
+## Set dockerized entry-point
+ENTRYPOINT ["/bin/bash"]
